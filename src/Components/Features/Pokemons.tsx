@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
+import { animateScroll as scroll } from 'react-scroll'
 import { PokemonItem } from '@UI/Molecules'
 import { PokemonInfoType } from '@API/rest'
-import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '@UI/Atoms'
 import { PokemonsActions, PokemonsSelectors } from '@Pages/index'
 
@@ -41,6 +42,7 @@ export const Pokemons: React.FC<PropsType> = ({
 				type: 'GET_POKEMON_INFO',
 				payload: { id, toSingleDetail: true },
 			})
+			scroll.scrollToTop()
 		},
 		[dispatch]
 	)

@@ -51,6 +51,7 @@ export const Page: React.FC = (): React.ReactElement => {
 	useEffect(() => {
 		if (pokemons) {
 			pokemons.forEach((pokemon: PokemonType, index: number) => {
+				console.log('igf', index)
 				if (index + 1 === pokemons.length) {
 					dispatch(PokemonsActions.setLoading(false))
 				} else {
@@ -84,7 +85,8 @@ export const Page: React.FC = (): React.ReactElement => {
 		[detailPokemonsInfo, searchValue]
 	)
 
-	return results.length !== 0 && !isLoading ? (
+	console.log('results', results)
+	return !isLoading ? (
 		<div>
 			<PageTitle>Pokedex</PageTitle>
 			<Filter>
